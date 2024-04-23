@@ -16,6 +16,7 @@ getrenv().Visit = cloneref(game:GetService("Visit"))
 getrenv().MarketplaceService = cloneref(game:GetService("MarketplaceService")) --// theres a reason why thats referenced in the roblox environment
 getrenv().HttpRbxApiService = cloneref(game:GetService("HttpRbxApiService"))
 getrenv().HttpService = cloneref(game:GetService("HttpService"))
+local CoreGui = cloneref(game:GetService("CoreGui"))
 local ContentProvider = cloneref(game:GetService("ContentProvider"))
 local RunService = cloneref(game:GetService("RunService"))
 local Stats = cloneref(game:GetService("Stats"))
@@ -29,6 +30,12 @@ local TeleportService = cloneref(game:GetService("TeleportService"))
 local NetworkSettings = settings().Network
 local UserGameSettings = UserSettings():GetService("UserGameSettings")
 getrenv().getgenv = clonefunction(getgenv)
+
+local message = Instance.new("Message")
+message.Text = "loading wyvern"
+message.Name = "💋❀  𝓝𝓘𝓖𝓖𝓐 ! 𝓗𝓐𝓒𝓚  ❀💋"
+message.Parent = CoreGui
+
 task.wait(0.1)
 
 getgenv().stealth_call = function(script)
@@ -804,4 +811,5 @@ local serv2 = win:Server("Explorer", "")
 local explorer = serv2:Channel("work in progress")
 explorer:Label("will add stupid roblox env explorer soon")
 main:Label("                            Wyvern loaded in " .. string.format("%s seconds.", string.format("%.2f", tostring(tick() - LOAD_TIME))))
+pcall(function() message:Destroy() end)
 end)
